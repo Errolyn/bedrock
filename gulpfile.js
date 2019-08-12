@@ -25,6 +25,9 @@ const browserSync = require('browser-sync').create();
 const merge = require('merge-stream');
 const staticBundles = require('./media/static-bundles.json');
 
+// for ES6 transpiling
+const babel = require('gulp-babel');
+
 // directory for building LESS, SASS, and bundles
 const buildDir = 'static_build';
 
