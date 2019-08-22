@@ -294,6 +294,23 @@ function jsWatch(cb) {
 }
 
 /**
+ * Transpile ES6 JavaScript files.
+ */
+function transpileJs() {
+    gulp.task('scripts', function() {
+        return gulp.src(
+          [
+          'node_modules/babel-polyfill/dist/polyfill.js',
+          'js/*.es6.js'
+          ])
+          .pipe(babel({presets: ['es2015']}))
+          .pipe(gulp.dest('compiled'))
+          
+    });
+    log.info(`Transpiling JavaScript`);
+}
+
+/**
  * Minify all of the CSS files after compilation.
  */
 function cssMinify() {
@@ -442,6 +459,7 @@ function devWatch(cb) {
 const buildTask = gulp.series(
     clean,
     assetsCopy,
+    transpileJs,
     gulp.parallel(sassCompileAllFiles, lessCompileAllFiles),
     gulp.parallel(jsCompileBundles, cssCompileBundles),
     gulp.parallel(jsMinify, cssMinify)
@@ -451,6 +469,7 @@ gulp.task('build', buildTask);
 const defaultTask = gulp.series(
     clean,
     assetsCopy,
+    transpileJs,
     gulp.parallel(sassCompileAllFiles, lessCompileAllFiles),
     gulp.parallel(jsCompileBundles, cssCompileBundles),
     assetsWatch,
