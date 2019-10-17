@@ -195,6 +195,11 @@ def send_to_device_ajax(request):
             MESSAGES = SEND_TO_DEVICE_MESSAGE_SETS[message_set]
 
         if data_type == 'number':
+
+            # for testing purposes return success
+            if phone_or_email == '5555555555':
+                return HttpResponseJSON({'success': True})
+
             if platform in MESSAGES['sms']:
                 data = {
                     'mobile_number': phone_or_email,
@@ -991,3 +996,14 @@ def firefox_welcome_page1(request):
     template_name = 'firefox/welcome/page1.html'
 
     return l10n_utils.render(request, template_name, context)
+
+
+def firefox_mobile(request):
+    locale = l10n_utils.get_locale(request)
+
+    if locale.startswith('en-'):
+        template_name = 'firefox/mobile-en.html'
+    else:
+        template_name = 'firefox/mobile.html'
+
+    return l10n_utils.render(request, template_name)
