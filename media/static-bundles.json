@@ -755,7 +755,7 @@
     },
     {
       "files": [
-        "css/protocol/base/send-to-device.scss",
+        "css/protocol/components/send-to-device.scss",
         "css/firefox/mobile-protocol.scss"
       ],
       "name": "firefox-mobile-protocol"
