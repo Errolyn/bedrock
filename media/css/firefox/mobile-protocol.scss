@@ -11,8 +11,6 @@ $image-path: '/media/protocol/img';
 @import '../../protocol/css/components/call-out';
 @import '../../protocol/css/components/modal';
 
-@import '../protocol/hubs/sub-nav';
-@import '../protocol/hubs/sub-nav-download-button-remove';
 
 //* -------------------------------------------------------------------------- */
 // Page specific variables and over-rides
@@ -446,8 +444,7 @@ li {
 //  Modal
 
 
-#modal-download-firefox,
-#modal-download-focus {
+#modal-download-firefox {
     display: none;
 }
 
