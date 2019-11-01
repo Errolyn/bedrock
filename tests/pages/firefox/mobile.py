@@ -17,10 +17,6 @@ class FirefoxMobilePage(FirefoxBasePage):
     _get_firefox_features_button_locator = (By.ID, 'features-get-firefox')
     _get_firefox_qr_code_locator = (By.ID, 'firefox-qr')
 
-    _get_focus_header_button_locator = (By.ID, 'get-focus')
-    _get_focus_features_button_locator = (By.ID, 'features-get-focus')
-    _get_focus_qr_code_locator = (By.CSS_SELECTOR, '#focus-qr')
-
     @property
     def send_to_device(self):
         return SendToDevice(self)
@@ -28,10 +24,6 @@ class FirefoxMobilePage(FirefoxBasePage):
     @property
     def is_firefox_qr_code_displayed(self):
         return self.is_element_displayed(*self._get_firefox_qr_code_locator)
-
-    @property
-    def is_focus_qr_code_displayed(self):
-        return self.is_element_displayed(*self._get_focus_qr_code_locator)
 
     def open_modal(self, locator):
         modal = Modal(self)
@@ -43,14 +35,7 @@ class FirefoxMobilePage(FirefoxBasePage):
         self.scroll_element_into_view(*self._get_firefox_header_button_locator)
         return self.open_modal(self._get_firefox_header_button_locator)
 
-    def click_get_focus_button(self):
-        self.scroll_element_into_view(*self._get_focus_header_button_locator)
-        return self.open_modal(self._get_focus_header_button_locator)
-
     def click_get_firefox_features_button(self):
         self.scroll_element_into_view(*self._get_firefox_features_button_locator)
         return self.open_modal(self._get_firefox_features_button_locator)
 
-    def click_get_focus_features_button(self):
-        self.scroll_element_into_view(*self._get_focus_features_button_locator)
-        return self.open_modal(self._get_focus_features_button_locator)

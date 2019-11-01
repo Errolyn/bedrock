@@ -84,16 +84,6 @@ def test_get_firefox_qr_code_locale(base_url, selenium):
 
 # focus - qr code
 
-
-# Protocol
-@pytest.mark.nondestructive
-def test_get_focus_header_button(base_url, selenium):
-    page = FirefoxMobilePage(selenium, base_url).open()
-    modal = page.click_get_focus_button()
-    assert modal.is_displayed
-    assert page.is_focus_qr_code_displayed
-
-
 # Pebbles
 @pytest.mark.nondestructive
 def test_get_focus_header_button_locale(base_url, selenium):
@@ -103,9 +93,7 @@ def test_get_focus_header_button_locale(base_url, selenium):
     assert page.is_focus_qr_code_displayed
     modal.close()
 
-
 # scroll to section - Pebbles only
-
 
 # Pebbles
 @pytest.mark.nondestructive
