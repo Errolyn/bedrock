@@ -55,6 +55,13 @@ li {
     }
 }
 
+.modal-logo {
+    @include at2x('/media/protocol/img/logos/firefox/browser/logo-lg.png', auto, 100%);
+    @include image-replaced;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .get-firefox-icon {
     max-height: 20px;
     vertical-align: text-bottom;

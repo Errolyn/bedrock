@@ -8,8 +8,6 @@
     var modal = document.getElementById('modal');
     var mobileButtons = document.querySelectorAll('.js-mobile');
     var mobileContent = document.getElementById('modal-download-firefox');
-    var focusButtons = document.querySelectorAll('.js-focus');
-    var focusContent = document.getElementById('modal-download-focus');
 
     for(var i = 0; i < mobileButtons.length; i++) {
         mobileButtons[i].addEventListener('click', function() {
@@ -18,18 +16,6 @@
                 closeText: window.Mozilla.Utils.trans('global-close'),
                 onDestroy: function() {
                     mobileContent.style.display = 'none';
-                }
-            });
-        });
-    }
-
-    for(var j = 0; j < focusButtons.length; j++) {
-        focusButtons[j].addEventListener('click', function() {
-            focusContent.style.display = 'block';
-            Mzp.Modal.createModal(this, modal, {
-                closeText: window.Mozilla.Utils.trans('global-close'),
-                onDestroy: function() {
-                    focusContent.style.display = 'none';
                 }
             });
         });
