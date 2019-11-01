@@ -38,4 +38,3 @@ class FirefoxMobilePage(FirefoxBasePage):
     def click_get_firefox_features_button(self):
         self.scroll_element_into_view(*self._get_firefox_features_button_locator)
         return self.open_modal(self._get_firefox_features_button_locator)
-
